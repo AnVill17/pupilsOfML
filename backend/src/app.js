@@ -4,7 +4,7 @@ import healthcheckrouter from './routes/healthcheck.router.js'
 import CookieParser from 'cookie-parser'
 import { errorHandler } from './middlewares/error.middlewear.js'
 // import userRouter from './routes/user.routes.js'
-import chatbotRouter from "./routes/chatbot.routes.js";
+import chatbotRouter from "./routes/cropPredictor.routes.js";
 import plantDiseaseDetector from "./routes/diseaseP.routes.js";
 const app =express()
 app.use(cors({
@@ -21,6 +21,6 @@ app.use(CookieParser())
 
 
 app.use("/api/v1/crops", chatbotRouter);
-app.use("/api/v1/pdf", plantDiseaseDetector);
+app.use("/api/v1/pdf", plantDiseaseDetector);//name change because of fast implementation from previous project
 app.use(errorHandler)
 export {app}

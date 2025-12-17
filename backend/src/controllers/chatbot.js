@@ -6,38 +6,36 @@ import { gemini, gemini2 } from "./geminiapi.js";
 const chatbot = asynchandler(async (req, res) => {
   try {
     // ✅ Get crop data from request body
-    const cropData = req.body;
+    const userAsk = req.body;
 
-    // ✅ Call external ML prediction API
-   //  const predictionResponse = await axios.post(
-   //    "https://crop-prediction-api-0bj5.onrender.com/predict",
-   //    cropData,
-   //    {
-   //      headers: { "Content-Type": "application/json" },
-   //    }
-   //  );
+    
+    const predictionResponse = await axios.post(
+      "https://crop-prediction-api-0bj5.onrender.com/predict",//will put in env file but for demo its here!!
+      cropData,
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
-    // ✅ Extract the predicted crop (adjust key if API changes)
-   //  const prediction = predictionResponse.data["Predicted Crop"];
-    const prediction = "rice"; // hardcoded for demo purposes
- // hardcoded for demo purposes
-    console.log("External API response data:", prediction);
+    if(!predictionResponse)
+      console.log("error fetching msg");
+      
+//     const prediction = "rice"; // hardcoded for demo purposes
+//  // hardcoded for demo purposes
+    console.log("External API response data:", predictionResponse);
 
-    // ✅ Optional: Call Gemini for more info about the predicted crop
-    // const geminiResponse = await gemini(prediction);
-
-    // ✅ Build the final result object
+  
     const result = {
-      crop: prediction,
-      // info: geminiResponse, // uncomment if Gemini is active
+      response:predictionResponse,
+     
     };
 
-    // ✅ Send back structured response
+    
     return res
       .status(200)
-      .json(new ApiResponse(200, result, "Crop prediction successful"));
+      .json(new ApiResponse(200, result, "user reposnse sent"));
   } catch (error) {
-    // ✅ Log and return a clean error message
+    
     console.error("Error fetching prediction from ML service:", error.message);
     return res
       .status(500)
