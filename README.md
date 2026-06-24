@@ -73,7 +73,7 @@ Output: accidents_best.csv and accidents_best.jsonl
 - Statistical insights: number of accidents by year/state/cause  
 - Clustering: similarity in accident narratives  
 - Classification: predicting cause type or severity from text  
-Tools: pandas, scikit-learn, matplotlib, plotly  
+Tools: pandas, scikit-learn, matplotlib, plotly  .
 
 ---
 
