@@ -11,11 +11,11 @@ This project aims to develop an AI-driven Mine Safety Intelligence System capabl
 
 - Digitizing historical accident reports (DGMS/Ministry of Mines, India)  
 - Extracting structured data from unstructured PDFs and scanned reports  
-- Detecting patterns and predicting accident trends  
+- Detecting patterns and predicting accident trends 
 - Generating factual summaries and safety insights  
 - Assisting decision-makers through an intelligent LLM-based safety assistant  
 
-The system leverages Natural Language Processing (NLP), **Machine Learning, and **Large Language Model (LLM) fine-tuning (via LoRA) to build a knowledge base for accident prevention and safety planning.
+The system leverages Natural Language Processing (NLP), **Machine Learning, and **Large Language Model (LLM) fine-tuning (via LoRA) to build a knowledge base for accident prevention and safety planning..
 
 ---
 
